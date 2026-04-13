@@ -26,10 +26,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Build output
-dist/
-build/
-
 # mac folders
 .DS_Store
 
