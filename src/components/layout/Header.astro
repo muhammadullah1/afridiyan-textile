@@ -1,0 +1,131 @@
+---
+const navLinks = [
+  { label: 'Home',     href: '#home' },
+  { label: 'Products', href: '#products' },
+  { label: 'About',    href: '#about' },
+  { label: 'Contact',  href: '#contact' },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <!-- Top bar -->
+  <div class="bg-brand-950 text-cream/80 text-xs py-1.5 px-4 text-center font-body tracking-wide hidden md:block">
+    📍 Shop No. 1, Rosu Laro Market, Near Minar Masjid, Bara Bazar, Khyber &nbsp;|&nbsp;
+    📞 +92 306 0548000
+  </div>
+
+  <!-- Main nav -->
+  <nav class="bg-cream/95 backdrop-blur-sm border-b border-brand-200/60 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 bg-brand-600 flex items-center justify-center flex-shrink-0
+                      group-hover:bg-brand-700 transition-colors duration-200">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <div class="font-display font-bold text-ink text-base md:text-lg tracking-tight leading-none">Afridiyan</div>
+            <div class="font-body text-brand-600 text-[10px] tracking-[0.15em] uppercase">Imperial Textile Mall</div>
+          </div>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="font-body text-sm text-ink-soft hover:text-brand-600 transition-colors duration-200
+                       tracking-wide relative after:absolute after:bottom-[-3px] after:left-0 after:w-0
+                       after:h-px after:bg-brand-500 after:transition-all after:duration-300
+                       hover:after:w-full"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a href="tel:+923060548000" class="hidden md:inline-flex btn-primary text-xs">
+          Call Now
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          class="md:hidden flex flex-col gap-1.5 p-2"
+        >
+          <span class="w-6 h-0.5 bg-ink block transition-all duration-300 ham-line"></span>
+          <span class="w-6 h-0.5 bg-ink block transition-all duration-300 ham-line"></span>
+          <span class="w-4 h-0.5 bg-ink block transition-all duration-300 ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden border-t border-brand-100 bg-cream"
+    >
+      <ul class="px-4 py-4 flex flex-col gap-3">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-nav-link block font-body text-ink-soft hover:text-brand-600 py-2
+                     border-b border-brand-100 transition-colors duration-200 tracking-wide text-sm"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li class="pt-2">
+          <a href="tel:+923060548000" class="btn-primary w-full justify-center text-xs">
+            📞 Call Now
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const header = document.getElementById('site-header');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.toggle('hidden') === false;
+    hamburger.setAttribute('aria-expanded', String(!isOpen === false ? 'true' : 'false'));
+    // Actually track state properly
+    const nowOpen = !mobileMenu?.classList.contains('hidden');
+    hamburger.setAttribute('aria-expanded', String(nowOpen));
+  });
+
+  // Close mobile menu on nav link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      hamburger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  });
+</script>

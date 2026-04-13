@@ -1,0 +1,71 @@
+---
+const highlights = [
+  { num: '10+', label: 'Years of Experience' },
+  { num: '100%', label: 'Quality Assured' },
+  { num: '1000+', label: 'Happy Customers' },
+  { num: '2', label: 'Contact Numbers' },
+];
+---
+
+<section id="about" class="py-24 bg-cream relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Visual side -->
+      <div class="reveal order-2 lg:order-1">
+        <div class="relative">
+          <!-- Main block -->
+          <div class="bg-brand-900 p-10 md:p-14 relative">
+            <!-- Corner ornament -->
+            <div class="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-brand-400"></div>
+            <div class="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-brand-400"></div>
+
+            <p class="font-display italic text-brand-400 text-xl md:text-2xl leading-relaxed text-cream/90 mb-0">
+              "With years of experience in the textile business, we proudly serve our customers with quality products and reliable service."
+            </p>
+          </div>
+
+          <!-- Stats grid -->
+          <div class="grid grid-cols-2 gap-px bg-brand-200 mt-px">
+            {highlights.map(({ num, label }) => (
+              <div class="bg-cream-warm p-6 text-center">
+                <div class="font-display font-bold text-brand-600 text-3xl md:text-4xl leading-none mb-1">{num}</div>
+                <div class="font-body text-ink-muted text-xs uppercase tracking-widest">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="reveal delay-200 order-1 lg:order-2">
+        <p class="section-label mb-3">Our Story</p>
+        <h2 class="font-display font-bold text-ink text-4xl md:text-5xl mb-6 leading-tight">
+          About <em class="text-brand-600 not-italic">Afridiyan</em>
+        </h2>
+        <div class="w-14 h-0.5 bg-brand-400 mb-7"></div>
+
+        <div class="space-y-4 font-body text-ink-muted text-base leading-[1.9]">
+          <p>
+            <strong class="text-ink font-semibold">Afridiyan Imperial Textile Mall (Private) Limited</strong> is a well-known and trusted cloth shop located in the heart of <strong class="text-ink font-semibold">Bara Bazar, Khyber</strong>.
+          </p>
+          <p>
+            With years of experience in the textile business, we proudly serve our customers with quality products and reliable service. Our mission is to deliver the best fabrics at the best prices while maintaining the highest levels of customer satisfaction.
+          </p>
+          <p>
+            Whether you're looking for the finest gents suiting cloth, beautiful ladies fabric, or the latest seasonal collections — we have it all under one roof. Come experience honest, friendly service and a wide range of premium textiles at Afridiyan Imperial.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="btn-primary">
+            Visit Our Shop
+          </a>
+          <a href="https://wa.me/923060548000" target="_blank" rel="noopener noreferrer" class="btn-outline">
+            💬 WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

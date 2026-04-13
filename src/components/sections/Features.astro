@@ -1,0 +1,71 @@
+---
+const features = [
+  {
+    icon: '🏆',
+    title: 'Premium Quality',
+    desc: 'Every fabric we stock is carefully selected to meet the highest quality standards. We never compromise on what we offer our customers.',
+  },
+  {
+    icon: '💰',
+    title: 'Best Prices',
+    desc: 'We believe premium textiles should be accessible. Our pricing is transparent, fair, and consistently competitive in the market.',
+  },
+  {
+    icon: '🆕',
+    title: 'Latest Designs',
+    desc: 'Always stocked with the newest fashion trends and seasonal collections, so you\'re always dressed in the latest styles.',
+  },
+  {
+    icon: '🤝',
+    title: 'Honest Service',
+    desc: 'We treat every customer with respect and honesty. Our team is friendly, knowledgeable, and always happy to help you find exactly what you need.',
+  },
+  {
+    icon: '📦',
+    title: 'Wide Selection',
+    desc: 'From gents suiting to ladies lawn and embroidered fabrics — we carry an extensive range to cater to every taste and occasion.',
+  },
+  {
+    icon: '💬',
+    title: 'WhatsApp Support',
+    desc: 'Can\'t visit in person? Connect with us on WhatsApp for quick queries, product photos, and seamless communication at your convenience.',
+  },
+];
+---
+
+<section class="py-24 bg-brand-950 relative overflow-hidden">
+  <!-- Texture -->
+  <div class="absolute inset-0 bg-weave opacity-10"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <p class="section-label text-brand-400 mb-3">Why Choose Us</p>
+      <h2 class="font-display font-bold text-cream text-4xl md:text-5xl mb-4">
+        Our <em class="text-brand-400 not-italic">Commitment</em>
+      </h2>
+      <div class="flex items-center justify-center gap-3">
+        <span class="w-12 h-px bg-brand-700"></span>
+        <span class="text-brand-500 text-lg">✦</span>
+        <span class="w-12 h-px bg-brand-700"></span>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-800">
+      {features.map((f, i) => (
+        <div class={`reveal delay-${(i % 3 + 1) * 100} bg-brand-950 p-8 group hover:bg-brand-900 transition-colors duration-300`}>
+          <div class="text-4xl mb-4">{f.icon}</div>
+          <h3 class="font-display font-semibold text-cream text-lg mb-3 group-hover:text-brand-300 transition-colors duration-200">
+            {f.title}
+          </h3>
+          <div class="w-6 h-px bg-brand-600 mb-4 group-hover:w-12 transition-all duration-300"></div>
+          <p class="font-body text-cream/50 text-sm leading-relaxed">
+            {f.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

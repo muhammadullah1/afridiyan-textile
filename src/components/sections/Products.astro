@@ -1,0 +1,119 @@
+---
+interface Product {
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+const products: Product[] = [
+  {
+    icon: '👔',
+    title: 'Gents Fabric',
+    description: 'Refined suiting cloth, shalwar kameez fabric, and formal dress materials for the modern man. Premium quality in every thread.',
+    tags: ['Suiting', 'Shalwar Kameez', 'Formal Wear'],
+  },
+  {
+    icon: '👗',
+    title: 'Ladies Fabric',
+    description: 'Elegant lawn, silk, chiffon, and embroidered fabrics for every occasion — from casual to bridal wear.',
+    tags: ['Lawn', 'Silk', 'Chiffon', 'Embroidered'],
+  },
+  {
+    icon: '🧣',
+    title: 'Seasonal Collections',
+    description: 'Stay ahead of every season with our curated summer and winter fabric collections featuring the latest trends.',
+    tags: ['Summer', 'Winter', 'Seasonal'],
+  },
+  {
+    icon: '🎁',
+    title: 'Special Orders',
+    description: 'Need something unique? We accept special orders for bulk purchases, custom fabric selections, and gift bundles.',
+    tags: ['Bulk Orders', 'Custom', 'Gifts'],
+  },
+];
+---
+
+<section id="products" class="py-24 bg-cream-warm relative overflow-hidden">
+  <!-- Background texture -->
+  <div class="absolute inset-0 bg-weave opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <p class="section-label mb-3">Our Collections</p>
+      <h2 class="font-display font-bold text-ink text-4xl md:text-5xl mb-4">
+        Premium <em class="text-brand-600 not-italic">Products</em>
+      </h2>
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <span class="w-12 h-px bg-brand-300"></span>
+        <span class="text-brand-400 text-lg">✦</span>
+        <span class="w-12 h-px bg-brand-300"></span>
+      </div>
+      <p class="font-body text-ink-muted text-lg max-w-2xl mx-auto leading-relaxed">
+        We offer a wide range of textile products — from everyday essentials to exclusive designs — all at the most competitive prices in Khyber.
+      </p>
+    </div>
+
+    <!-- Product grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {products.map((product, i) => (
+        <article
+          class={`reveal delay-${(i + 1) * 100} bg-cream border border-brand-100 hover:border-brand-300
+                  hover:shadow-xl transition-all duration-400 group cursor-default`}
+        >
+          <div class="p-8">
+            <!-- Icon -->
+            <div class="text-5xl mb-5 block">{product.icon}</div>
+
+            <!-- Title -->
+            <h3 class="font-display font-semibold text-ink text-xl mb-3 group-hover:text-brand-700 transition-colors duration-200">
+              {product.title}
+            </h3>
+
+            <!-- Divider -->
+            <div class="w-8 h-0.5 bg-brand-400 mb-4 group-hover:w-16 transition-all duration-300"></div>
+
+            <!-- Description -->
+            <p class="font-body text-ink-muted text-sm leading-relaxed mb-5">
+              {product.description}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5">
+              {product.tags.map((tag) => (
+                <span class="text-[10px] font-body tracking-wide uppercase bg-brand-50 text-brand-700 px-2 py-0.5 border border-brand-100">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Bottom accent -->
+          <div class="h-0.5 bg-gradient-to-r from-brand-400 to-brand-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left"></div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Guarantee strip -->
+    <div class="mt-14 reveal delay-500">
+      <div class="bg-brand-900 text-cream px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex flex-wrap justify-center sm:justify-start gap-8">
+          {[
+            ['✨', 'Premium Quality Guaranteed'],
+            ['💰', 'Reasonable Prices'],
+            ['🆕', 'Latest Designs Always Available'],
+          ].map(([emoji, text]) => (
+            <span class="flex items-center gap-2 text-sm font-body text-cream/80">
+              <span class="text-brand-400 text-base">{emoji}</span> {text}
+            </span>
+          ))}
+        </div>
+        <a href="#contact" class="btn-primary text-xs whitespace-nowrap">
+          Visit Us Today
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
